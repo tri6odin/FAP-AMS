@@ -9,7 +9,7 @@ from utils.exceptions import RequestHTTPError, custom_http_handler, custom_pydan
 from utils.scheduler import delete_temp_users
 from utils.logger import logger
 
-from database.models.publicKeys import PublicKeyModel
+from database.models.key import PublicKeyModel
 from database.models.user import UserModel
 from database.crud import create_table
 

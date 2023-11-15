@@ -2,13 +2,13 @@
 
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/fastapi) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/tri6odin/FAP-AMS/blob/main/LICENSE.MD)
 
-FAP-AMS is a lightweight and fast authentication service that utilizes one-time code with support for two-factor authentication (2FA). It is designed to be simple and straightforward to integrate into your systems providing strong security mechanisms.
+FAP-AMS is a lightweight and fast authentication service that allows users to create and edit profiles using a one-time code with support for two-factor authentication (2FA). It is designed to be simple and straightforward to integrate into your systems providing strong security mechanisms.
 
 **The service does not include the function of sending SMS messages. This needs to be implemented as required by your provider in the `utils/sender.py` file.**
 
 ## How to use
 
-The microservice stores the profiles of your users and also generates tokens for their authorization in your other microservices. To verify the token you can get the **public_key** in the `/utils/public_key` endpoint
+The microservice stores the profiles of your users in your **Postgres** database and also generates tokens for their authorization in your other microservices. To verify the token you can get the **public_key** in the `/utils/public_key` endpoint.
 
 ## Features
 
@@ -36,7 +36,7 @@ cd FAP-AMS
 
 2. Modify the `.env` file with your settings.
 
-3. To deploy the service using Docker, use the following commands:
+3. To deploy, use the following commands:
 
 ```bash
 docker build --no-cache -t auth_microservice .

@@ -33,7 +33,7 @@ Receiving **public key** by other microservices for validation **JWT**
 """,
             responses={**EXC_404, **EXC_422})
 async def public_key(
-    version: int = Query(None, alias="model"),
+    version: int = Query(None, alias="version"),
     db: AsyncSessionLocal = Depends(get_db)
 ):
     # Check if the key version was transferred

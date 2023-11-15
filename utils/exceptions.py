@@ -22,7 +22,7 @@ GENERIC_MESSAGES = {
 }
 
 
-async def custom_http_handler(exc: RequestHTTPError):
+async def custom_http_handler(request, exc: RequestHTTPError):
     # If we are in development mode or the error should not be hidden, display a detailed message
     if DEV_MODE or not exc.hide_details_in_prod:
         return JSONResponse(
@@ -39,7 +39,7 @@ async def custom_http_handler(exc: RequestHTTPError):
         )
 
 
-async def custom_pydantic_handler(exc: RequestValidationError):
+async def custom_pydantic_handler(request, exc: RequestValidationError):
     # Take the first message from the error and return it
     error_message = exc.errors()[0]["msg"]
     return JSONResponse(

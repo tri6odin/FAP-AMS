@@ -1,9 +1,13 @@
 import random
+
 from datetime import datetime
+
 from typing import Union
 
 from config import CODE_ATTEMPT, CODE_COOLDOWN_SECONDS, CODE_TOTAL_DIGITS, CODE_UNIQUE_DIGITS
+
 from utils.exceptions import RequestHTTPError
+from utils.logger import logger
 
 # Code checking. Returns True if the password is correct and an exception if not
 
@@ -40,6 +44,7 @@ def seconds_until_next_code(issue_date: datetime) -> Union[str, bool]:
 def generate_code():
     # Check that the number of unique characters and the total number of characters meet the requirements
     if CODE_UNIQUE_DIGITS > CODE_TOTAL_DIGITS or CODE_UNIQUE_DIGITS > 10:
+        logger.error("Config - Total or unique digits param error")
         raise RequestHTTPError(
             status_code=500, detail="Total or unique digits param error", hide_details_in_prod=True)
     # Select unique numbers

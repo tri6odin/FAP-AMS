@@ -24,7 +24,7 @@ class responseProfileSchema(BaseModel):
     nickname: Optional[str] = Field(
         None, min_length=NICKNAME_MIN_LENGTH, max_length=NICKNAME_MAX_LENGTH)
     age: Optional[conint(ge=18)] = None
-    password: bool = None
+    password: bool = False
 
     @validator('password', pre=True, always=True)
     def hash_password(cls, v):

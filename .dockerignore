@@ -1,0 +1,13 @@
+.env
+.dockerignore
+.DS_Store
+.gitignore
+.git/
+.vscode/
+venv/
+keys/
+logs/
+test/
+__pycache__
+LICENSE
+README.MD

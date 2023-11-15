@@ -24,7 +24,7 @@ def send_email(email, code):
 
     if DEV_MODE:
         print(code)
-
+    plain_text_body = code
     html_body = f"""
                 <html>
                     <body>
@@ -41,6 +41,9 @@ def send_email(email, code):
     message['From'] = SMTP_SENDER_NAME
     message['To'] = email
     message['Subject'] = subject
+
+    # Add plain text body
+    message.attach(MIMEText(plain_text_body, 'plain'))
 
     # Add HTML body
     message.attach(MIMEText(html_body if html_body else "No body", 'html'))

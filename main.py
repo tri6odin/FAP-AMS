@@ -9,7 +9,7 @@ from utils.exceptions import RequestHTTPError, custom_http_handler, custom_pydan
 from utils.scheduler import delete_temp_users
 from utils.logger import logger
 
-from database.models.publicKeys import PublicKeyModel
+from database.models.key import PublicKeyModel
 from database.models.user import UserModel
 from database.crud import create_table
 
@@ -25,7 +25,6 @@ scheduler = AsyncIOScheduler()
 scheduler.add_job(delete_temp_users, 'interval',
                   seconds=SCHEDULER_FREQUENCY_SECONDS)
 scheduler.start()
-logger.info("Scheduler - Started")
 
 
 # Create db before startup
@@ -34,6 +33,7 @@ async def lifespan(app: FastAPI):
     try:
         await create_table(UserModel)
         await create_table(PublicKeyModel)
+        logger.info("Database - Connected")
         yield
         logger.info("App - Stopped")
     except Exception as e:
@@ -50,10 +50,6 @@ app = FastAPI(
         "url": "https://github.com/tri6odin/FAP-AMS/blob/main/LICENSE.MD",
     },
     description="""
-### ⚠️ Caution:
-
-* Don't forget to add the parameter `hide_details_in_prod = True` for all **RequestHTTPErrors** that you want to hide detailed exceptions, and set `DEV_MODE = False` in the config before deploying to prod
-
 ### To change the configuration:
 
 * If using **Docker** - modify `.env` and restart **container**:
@@ -66,6 +62,12 @@ app = FastAPI(
 * If using **local version** - modify `config.py` and restart **uvicorn**:
 
     Press `Control`+`C` to stop server and `uvicorn main:app --reload` to start again
+
+---
+### ⚠️ Caution:
+
+* Set `DEV_MODE = False` in the config before deploying to prod. Don't forget to add the parameter `hide_details_in_prod = True` for all **RequestHTTPErrors** that you want to hide detailed exceptions.
+
 ---
 """)
 logger.info("App - Started")
@@ -75,7 +77,6 @@ app.exception_handler(RequestHTTPError)(
     custom_http_handler)
 app.exception_handler(RequestValidationError)(
     custom_pydantic_handler)
-logger.info("Handler - Started")
 
 # Including routes
 app.include_router(key.router, prefix="/utils", tags=["Utils"])
@@ -88,4 +89,3 @@ app.include_router(profile.router, prefix="/user", tags=["User"])
 app.include_router(credentials.router, prefix="/user", tags=["User"])
 app.include_router(password.router, prefix="/user", tags=["User"])
 app.include_router(delete.router, prefix="/user", tags=["User"])
-logger.info("Router - Started")

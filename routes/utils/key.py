@@ -2,7 +2,7 @@ from fastapi import Depends, APIRouter, Query
 
 from config import PUBLIC_KEY
 
-from database.models.publicKeys import PublicKeyModel
+from database.models.key import PublicKeyModel
 from database.schemas.key import responseKeySchema
 from database.setup import AsyncSessionLocal
 from database.crud import get_db, get_row
@@ -33,7 +33,7 @@ Receiving **public key** by other microservices for validation **JWT**
 """,
             responses={**EXC_404, **EXC_422})
 async def public_key(
-    version: int = Query(None, alias="model"),
+    version: int = Query(None, alias="version"),
     db: AsyncSessionLocal = Depends(get_db)
 ):
     # Check if the key version was transferred

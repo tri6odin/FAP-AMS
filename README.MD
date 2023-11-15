@@ -15,6 +15,7 @@ The microservice stores the profiles of your users and also generates tokens for
 - Ability to configure any parameter through the global config
 - Support for Dev and Prod mode with varying degrees of exception detail
 - JWT and RT tokens are encrypted with RS256 private and public keys
+- Password hashed and salted
 - Limitations on the frequency of generating tokens and one-time passwords
 - Limitation on the number of attempts to enter one-time code and password
 - Regular background events to remove temporary accounts

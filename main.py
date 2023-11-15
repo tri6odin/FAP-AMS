@@ -50,10 +50,6 @@ app = FastAPI(
         "url": "https://github.com/tri6odin/FAP-AMS/blob/main/LICENSE.MD",
     },
     description="""
-### ⚠️ Caution:
-
-* Don't forget to add the parameter `hide_details_in_prod = True` for all **RequestHTTPErrors** that you want to hide detailed exceptions, and set `DEV_MODE = False` in the config before deploying to prod
-
 ### To change the configuration:
 
 * If using **Docker** - modify `.env` and restart **container**:
@@ -66,6 +62,12 @@ app = FastAPI(
 * If using **local version** - modify `config.py` and restart **uvicorn**:
 
     Press `Control`+`C` to stop server and `uvicorn main:app --reload` to start again
+
+---
+### ⚠️ Caution:
+
+* Set `DEV_MODE = False` in the config before deploying to prod. Don't forget to add the parameter `hide_details_in_prod = True` for all **RequestHTTPErrors** that you want to hide detailed exceptions.
+
 ---
 """)
 logger.info("App - Started")

@@ -13,7 +13,6 @@ from utils.logger import logger
 async def create_table(model: Type[Base]):
     async with engine.begin() as db:
         await db.run_sync(Base.metadata.create_all, tables=[model.__table__], checkfirst=True)
-        logger.info("Table - Created or exists - %s", str(model.__table__))
 
 
 async def get_db():

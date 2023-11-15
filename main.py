@@ -25,7 +25,6 @@ scheduler = AsyncIOScheduler()
 scheduler.add_job(delete_temp_users, 'interval',
                   seconds=SCHEDULER_FREQUENCY_SECONDS)
 scheduler.start()
-logger.info("Scheduler - Started")
 
 
 # Create db before startup
@@ -34,6 +33,7 @@ async def lifespan(app: FastAPI):
     try:
         await create_table(UserModel)
         await create_table(PublicKeyModel)
+        logger.info("Database - Connected")
         yield
         logger.info("App - Stopped")
     except Exception as e:
@@ -75,7 +75,6 @@ app.exception_handler(RequestHTTPError)(
     custom_http_handler)
 app.exception_handler(RequestValidationError)(
     custom_pydantic_handler)
-logger.info("Handler - Started")
 
 # Including routes
 app.include_router(key.router, prefix="/utils", tags=["Utils"])
@@ -88,4 +87,3 @@ app.include_router(profile.router, prefix="/user", tags=["User"])
 app.include_router(credentials.router, prefix="/user", tags=["User"])
 app.include_router(password.router, prefix="/user", tags=["User"])
 app.include_router(delete.router, prefix="/user", tags=["User"])
-logger.info("Router - Started")

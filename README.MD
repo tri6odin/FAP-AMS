@@ -88,6 +88,8 @@ uvicorn main:app --reload
 
 After deployment, API documentation is available via Swagger and ReDoc on the `http://localhost:8000/docs` and `http://localhost:8000/redoc` endpoints or in the `http://localhost:8000/openapi.json` file.
 
+![screenshot](./static/swagger.png "Swagger UI")
+
 ## API Endpoints
 
 The service defines several endpoints for managing authentication, user profiles, and more. Below are the actual endpoints provided by the API:

@@ -8,6 +8,7 @@ venv/
 keys/
 logs/
 test/
+tests/
 __pycache__
 LICENSE
 README.MD

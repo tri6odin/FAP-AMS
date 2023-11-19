@@ -14,9 +14,6 @@ COPY requirements.txt /app/
 # Install dependencies
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Delete the keys dir
-RUN rm -rf /keys
-
 # Install OpenSSL
 RUN apt-get update && apt-get install -y openssl && apt-get clean && rm -rf /var/lib/apt/lists/*
 

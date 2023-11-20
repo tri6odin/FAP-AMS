@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-BASE_URL = os.environ.get('BASE_URL', "localhost")
+BASE_URL = os.environ.get('BASE_URL', "http://localhost:8000")
 DEV_MODE = bool(os.environ.get('DEV_MODE', True))
 SWAGGER = bool(os.environ.get('SWAGGER', True))
 REDOC = bool(os.environ.get('REDOC', True))

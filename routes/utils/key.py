@@ -29,7 +29,7 @@ Receiving **public key** by other microservices for validation **JWT**
 
 ### ⚠️ Caution:
 
-* After changing the **public key** and **private key** pair, you must restart the microservice. They will be added with a new **version** number to the database on the first request without the **{}** parameter and will become **actual**
+* After changing the **public key** and **private key** pair, you must restart the microservice. They will be added with a new **version** number to the database on the first request without parameter and will become **actual**
 """,
             responses={**EXC_404, **EXC_422})
 async def public_key(

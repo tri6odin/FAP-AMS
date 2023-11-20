@@ -65,8 +65,11 @@ app = FastAPI(
 
 ---
 ### ⚠️ Caution:
+Set `DEV_MODE = False` in the configuration before deploying to prod. This is required for:
 
-* Set `DEV_MODE = False` in the config before deploying to prod. Don't forget to add the parameter `hide_details_in_prod = True` for all **RequestHTTPErrors** that you want to hide detailed exceptions.
+* Remove one-time codes sent to email or phone from the **logs**
+
+* Hide exception text (Don't forget to add `hide_details_in_prod = True` for all **RequestHTTPErrors** that need to be hidden).
 
 ---
 """)

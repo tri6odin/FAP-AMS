@@ -23,7 +23,7 @@ def send_code(user: UserModel, cred_type):
 def send_email(email, code):
 
     if DEV_MODE:
-        print(code)
+        logger.info("Email Code - %s - %s", str(email), str(code))
     plain_text_body = code
     html_body = f"""
                 <html>
@@ -62,4 +62,4 @@ def send_email(email, code):
 
 def send_sms(phone, code):
     if DEV_MODE:
-        print(code)
+        logger.info("Phone Code - %s - %s", str(phone), str(code))

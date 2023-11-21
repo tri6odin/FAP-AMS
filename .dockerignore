@@ -5,6 +5,7 @@
 .git/
 .vscode/
 .pytest_cache/
+.tests/
 htmlcov/
 venv/
 keys/

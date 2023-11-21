@@ -115,10 +115,13 @@ EXC_422 = {
             "application/json": {
                 "examples": {
                     "Email Error": {
-                        "value": {"detail": "The email address is not valid. It must have exactly one @-sign."}
+                        "value": {"detail": "The email address is not valid. It must have exactly one @-sign"}
                     },
                     "Phone Error": {
-                        "value": {"detail": "???"}
+                        "value": {"detail": "The phone is not valid"}
+                    },
+                    "Code Error": {
+                        "value": {"detail": "Code field required"}
                     },
                     "Code Error": {
                         "value": {"detail": "Invalid length"}

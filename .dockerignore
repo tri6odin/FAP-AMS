@@ -4,6 +4,8 @@
 .gitignore
 .git/
 .vscode/
+.pytest_cache/
+htmlcov/
 venv/
 keys/
 logs/

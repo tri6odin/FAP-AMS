@@ -8,6 +8,8 @@ FAP-AMS is a lightweight and fast authentication service that allows users to cr
 
 ## How to use
 
+![schema](./static/schema.svg "FAP-AMS SCHEMA")
+
 The microservice stores the profiles of your users in your **Postgres** database and also generates tokens for their authorization in your other microservices. To verify the token you can get the **public_key** in the `/utils/public_key` endpoint.
 
 ## Features

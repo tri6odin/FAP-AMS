@@ -28,14 +28,14 @@ async def get_db():
     finally:
         await db.close()
 
-
+"""
 async def get_table(db: AsyncSessionLocal, model: Type[Base], page: Optional[int] = None, per_page: Optional[int] = None):
     query = select(model)
     if page is not None and per_page is not None:
         offset = (page - 1) * per_page
         query = query.offset(offset).limit(per_page)
     result = await db.execute(query)
-    return result.scalars().all()
+    return result.scalars().all()"""
 
 
 async def get_row(db: AsyncSessionLocal, model: Type[Base], filter_):

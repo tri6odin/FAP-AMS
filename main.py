@@ -69,7 +69,7 @@ Set `DEV_MODE = False` in the configuration before deploying to prod. This is re
 
 * Remove one-time codes sent to email or phone from the **logs**
 
-* Hide exception text (Don't forget to add `hide_details_in_prod = True` for all **RequestHTTPErrors** that need to be hidden).
+* Hide exception text (Don't forget to add `hide_details_in_prod = True` for all **RequestHTTPErrors** that need to be hidden, like in `utils/code.py`).
 
 ---
 """)

@@ -41,7 +41,7 @@ PASSWORD_ATTEMPT = int(os.environ.get('PASSWORD_ATTEMPT', 3))
 # Code attempts
 CODE_ATTEMPT = int(os.environ.get('CODE_ATTEMPT', 3))
 # Token issuance cooldown
-TOKEN_COOLDOWN_SECONDS = int(os.environ.get('TOKEN_COOLDOWN_SECONDS', 60))
+TOKEN_COOLDOWN_SECONDS = int(os.environ.get('TOKEN_COOLDOWN_SECONDS', 1))
 # Token expiration time
 JWT_EXPIRATION_MINUTES = int(os.environ.get('JWT_EXPIRATION_MINUTES', 60))
 RT_EXPIRATION_HOURS = int(os.environ.get('RT_EXPIRATION_HOURS', 1))
@@ -49,7 +49,7 @@ RT_EXPIRATION_HOURS = int(os.environ.get('RT_EXPIRATION_HOURS', 1))
 CODE_TOTAL_DIGITS = int(os.environ.get('CODE_TOTAL_DIGITS', 6))
 CODE_UNIQUE_DIGITS = int(os.environ.get('CODE_UNIQUE_DIGITS', 4))
 # Code issuance cooldown
-CODE_COOLDOWN_SECONDS = int(os.environ.get('CODE_COOLDOWN_SECONDS', 60))
+CODE_COOLDOWN_SECONDS = int(os.environ.get('CODE_COOLDOWN_SECONDS', 1))
 # Location of keys
 PRIVATE_KEY_PATH = os.environ.get('PRIVATE_KEY_PATH', "keys/private_key.pem")
 PUBLIC_KEY_PATH = os.environ.get('PUBLIC_KEY_PATH', "keys/public_key.pem")

@@ -17,10 +17,10 @@ from utils.user import get_user_by_id
 router = APIRouter()
 
 
-@router.delete("/profile",
-               response_model=responseDeleteSchema,
-               summary="Delete profile",
-               description="""
+@router.post("/profile",
+             response_model=responseDeleteSchema,
+             summary="Delete profile",
+             description="""
 ### Purpose:
 
 Deleting a user
@@ -39,8 +39,8 @@ Deleting a user
 
 * The user will permanently lose access to other microservices only after the expiration of **JWT**
 """,
-               responses={**EXC_422, **EXC_403, **EXC_404, **EXC_401
-                          })
+             responses={**EXC_422, **EXC_403, **EXC_404, **EXC_401
+                        })
 async def delete_profile(
         user_data: requestDeleteSchema,
         request: Request,

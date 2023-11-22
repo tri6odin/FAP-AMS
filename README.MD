@@ -88,9 +88,11 @@ pip install --no-cache-dir -r requirements.txt
 uvicorn main:app --reload
 ```
 
-After deployment, API documentation is available via Swagger and ReDoc on the `http://localhost:8000/docs` and `http://localhost:8000/redoc` endpoints or in the `http://localhost:8000/openapi.json` file.
+## Documentation
 
 ![screenshot](./static/swagger.png "Swagger UI")
+
+After deployment, API documentation is available via Swagger and ReDoc on the `http://localhost:8000/docs` and `http://localhost:8000/redoc` endpoints or in the `http://localhost:8000/openapi.json` file.
 
 ## API Endpoints
 
@@ -103,16 +105,16 @@ The service defines several endpoints for managing authentication, user profiles
 - `PATCH /auth/refresh`: Refresh an authentication token.
 
 - `PUT /user/profile`: Update user profile information.
-- `DELETE /user/profile`: Delete a user profile.
 - `PATCH /user/credentials`: Update user credentials.
 - `POST /user/password`: Set or update a user's password.
+- `POST /user/profile`: Delete a user profile.
 
 ## Dependencies
 
 The project incorporates a number of powerful libraries and frameworks, each contributing to its robustness and efficiency:
 
-- **FastAPI**: A modern, fast web framework for building APIs with Python 3.7+, based on standard Python type hints.
-- **Pydantic**: Utilized for data parsing and validation using Python type hints, and supports automatic generation of JSON schema for data models.
+- **FastAPI**: A modern, very fast web framework for building APIs.
+- **Pydantic v2**: Utilized for data parsing and validation using Python type hints, and supports automatic generation of JSON schema for data models.
 - **Asyncpg**: A library for asynchronous PostgreSQL database interaction, enhancing database operation performance.
 - **SQLAlchemy**: Offers a comprehensive set of tools for SQL and ORM that facilitate efficient database interaction.
 - **BCrypt**: Designed for secure password hashing.
